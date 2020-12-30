@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+
 import { resolve } from "url";
 import { join } from "path";
 
@@ -9,10 +10,16 @@ export type ApiResponse = {
 };
 
 function getDefaultHeaders() {
-  return {
+  const defaults = {
     accept: "application/json",
     "content-type": "application/json",
-  };
+  } as any;
+
+  if (process.env.RIC_TOKEN) {
+    defaults.authoraization = `Bearer ${process.env.RIC_TOKEN}`;
+  }
+
+  return defaults;
 }
 
 export async function get<T = ApiResponse>(path: string, query = {}) {
