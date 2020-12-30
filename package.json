@@ -1,12 +1,20 @@
 {
-  "name": "ric-cli",
+  "name": "@rightech/cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "dev": "ts-node-dev --rs false --no-notify --experimental-repl-await -- index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "ric": "./bin/ric"
+  },
+  "files": [
+    "bin/**/*",
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prohazko2/ric-cli.git"
