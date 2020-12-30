@@ -1,10 +1,11 @@
 import { program } from "commander";
-import dotenv from "dotenv";
 
 import api from "./src/cmds/api";
 import get from "./src/cmds/get";
 
-dotenv.config();
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
+}
 
 program.version("1.0.0");
 
