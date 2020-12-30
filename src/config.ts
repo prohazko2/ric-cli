@@ -5,7 +5,11 @@ import yaml from "yaml";
 
 import { version } from "../package.json";
 
-let currentContext: Context = null;
+let currentContext: Context = {
+  name: "anon",
+  url: "https://sandbox.rightech.io/",
+  token: null,
+};
 
 export interface Context {
   name: string;
@@ -36,7 +40,9 @@ export function getContext() {
   return currentContext;
 }
 
-reloadConfig();
+try {
+  reloadConfig();
+} catch (err) {}
 
 export default {
   getVersion,

@@ -1,15 +1,14 @@
 import { Command } from "commander";
 
-import * as models from "../src/models";
 
-const cmd = new Command("get");
+const cmd = new Command("create");
 
-cmd.command("models").action(async (p) => {
-  console.log(await models.get());
+cmd.command("model").action(async (p) => {
+  console.log("todo");
 });
 
-cmd.command("objects").action(async () => {
-  console.log(await models.get());
+cmd.command("object").action(async () => {
+  console.log("todo");
 });
 
 export default cmd;
