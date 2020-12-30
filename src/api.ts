@@ -16,9 +16,8 @@ function getDefaultHeaders() {
   } as any;
 
   if (process.env.RIC_TOKEN) {
-    defaults.authoraization = `Bearer ${process.env.RIC_TOKEN}`;
+    defaults.authorization = `Bearer ${process.env.RIC_TOKEN}`;
   }
-
   return defaults;
 }
 
@@ -28,7 +27,6 @@ export async function get<T = ApiResponse>(path: string, query = {}) {
   }
 
   const url = resolve(BASE_URL, path);
-  console.log(url);
   const res = await fetch(url, {
     headers: getDefaultHeaders(),
   });
