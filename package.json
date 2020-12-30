@@ -1,0 +1,23 @@
+{
+  "name": "ric-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "ts-node-dev --rs false --no-notify --experimental-repl-await -- index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prohazko2/ric-cli.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prohazko2/ric-cli/issues"
+  },
+  "homepage": "https://github.com/prohazko2/ric-cli#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.16"
+  }
+}
