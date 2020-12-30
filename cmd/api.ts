@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import * as api from "../api";
+import * as api from "../src/api";
 
 const cmd = new Command("api");
 

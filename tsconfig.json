@@ -5,6 +5,7 @@
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "moduleResolution": "node",
+      "resolveJsonModule": true,
       "module": "CommonJS",
       "target": "ES2020",
       "lib": ["es5", "es6", "es2015.promise", "es2017", "es2019", "es2020"],
@@ -14,8 +15,8 @@
     "include": [
       "index.ts",
       "bin/**/*.ts",
-      "modules/**/*.ts",
-      "types/**/*.ts"
+      "cmd/**/*.ts",
+      "src/**/*.ts",
     ],
     "exclude": [
       "node_modules",

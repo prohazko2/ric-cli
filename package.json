@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --rs false --no-notify --experimental-repl-await -- index.ts",
+    "watch": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "commander": "^6.2.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "yaml": "^1.10.0"
   }
 }

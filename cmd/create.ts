@@ -1,6 +1,6 @@
 import { Command } from "commander";
 
-import * as models from "../models";
+import * as models from "../src/models";
 
 const cmd = new Command("get");
 
