@@ -12,7 +12,7 @@ let currentContext: Context = {
 };
 
 export interface Context {
-  name: string;
+  name?: string;
   url: string;
   token: string;
 }
@@ -20,7 +20,7 @@ export interface Context {
 export interface ConfigFile {
   version: 1;
   context: string;
-  contexts: Context[];
+  contexts: { [name: string]: Context };
 }
 
 function reloadConfig() {
@@ -29,7 +29,7 @@ function reloadConfig() {
     .toString();
   const config = yaml.parse(content) as ConfigFile;
 
-  currentContext = config.contexts.find((x) => x.name === config.context);
+  currentContext = (config.contexts || [])[config.context];
 }
 
 export function getVersion() {

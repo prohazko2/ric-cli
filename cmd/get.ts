@@ -11,6 +11,14 @@ const cmd = new Command("get");
 cmd.option("--json", "Raw JSON output");
 cmd.option("--wide", "Return more fields");
 
+cmd.command("base").action(async ({ parent }) => {
+  const items = await models.getBase();
+  if (parent.json) {
+    return json(items);
+  }
+  table(items, ["base"]);
+});
+
 cmd.command("models").action(async ({ parent }) => {
   const items = await models.get();
   if (parent.json) {

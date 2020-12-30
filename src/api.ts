@@ -26,6 +26,8 @@ export interface BaseItem extends ApiResponse {
 }
 
 export class ApiError extends Error {
+  jti: any = "";
+  url: string = "";
   tags: string[] = [];
   code = 500;
 
@@ -36,6 +38,17 @@ export class ApiError extends Error {
       Error.captureStackTrace(this, this.constructor);
     } else {
       this.stack = new Error(message).stack;
+    }
+    this.trySetId();
+  }
+
+  trySetId() {
+    const [, b64] = (getToken() || "").split(".");
+    if (b64) {
+      try {
+        const payload = Buffer.from(b64, "base64").toString();
+        this.jti = JSON.parse(payload).jti || "";
+      } catch (err) {}
     }
   }
 
@@ -48,6 +61,15 @@ export class ApiError extends Error {
     this.code = +code;
     return this;
   }
+
+  withUrl(url: string) {
+    this.url = url;
+    return this;
+  }
+}
+
+function getToken() {
+  return config.getContext().token;
 }
 
 function getDefaultHeaders() {
@@ -57,8 +79,9 @@ function getDefaultHeaders() {
     "user-agent": `ric-cli:node ${config.getVersion()}`,
   } as any;
 
-  if (config.getContext().token) {
-    defaults.authorization = `Bearer ${config.getContext().token}`;
+  const token = getToken();
+  if (token) {
+    defaults.authorization = `Bearer ${token}`;
   }
   return defaults;
 }
@@ -75,7 +98,10 @@ export async function get<T = ApiResponse>(path: string, query = {}) {
   const json = (await res.json()) as any;
 
   if (res.status >= 400) {
-    throw new ApiError(json.message).withCode(json.code).withTags(json.tags);
+    throw new ApiError(json.message)
+      .withUrl(url)
+      .withCode(json.code)
+      .withTags(json.tags);
   }
 
   return json as T;

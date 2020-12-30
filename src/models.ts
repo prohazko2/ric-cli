@@ -26,6 +26,10 @@ export interface Model extends BaseItem {
   data?: ModelNode;
 }
 
+export function getBase() {
+  return _get<Model[]>("models/base-v3");
+}
+
 export function get() {
   return _get<Model[]>("models");
 }
