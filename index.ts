@@ -13,10 +13,6 @@ process.on("unhandledRejection", (err) => {
   throw err;
 });
 
-if (process.env.NODE_ENV === "development") {
-  require("dotenv").config();
-}
-
 program.version(config.getVersion());
 
 program.addCommand(api);

@@ -26,13 +26,10 @@
   },
   "homepage": "https://github.com/prohazko2/ric-cli#readme",
   "devDependencies": {
-    "@types/node": "^14.14.16",
-    "@types/node-fetch": "^2.5.7",
-    "dotenv": "^8.2.0"
+    "@types/node": "^14.14.16"
   },
   "dependencies": {
     "commander": "^6.2.1",
-    "node-fetch": "^2.6.1",
     "yaml": "^1.10.0"
   }
 }
