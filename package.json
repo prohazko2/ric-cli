@@ -1,6 +1,6 @@
 {
   "name": "@rightech/cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,9 @@
     "@types/node": "^14.14.16"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "commander": "^6.2.1",
-    "yaml": "^1.10.0"
+    "yaml": "^1.10.0",
+    "yargs": "^16.2.0"
   }
 }

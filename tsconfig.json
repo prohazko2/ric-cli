@@ -4,13 +4,16 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
     "resolveJsonModule": true,
+    "moduleResolution": "node",
     "module": "CommonJS",
     "target": "ES2020",
     "lib": ["es5", "es6", "es2015.promise", "es2017", "es2019", "es2020"],
     "allowJs": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@x/*": ["./src/*"]
+    }
   },
   "include": ["index.ts", "bin/**/*.ts", "cmd/**/*.ts", "src/**/*.ts"],
   "exclude": ["node_modules", "public"]
